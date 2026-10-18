@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/payment_system?useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    # Override with JWT_SECRET. Use a random secret of at least 32 bytes.
+    secret: ${JWT_SECRET:local-demo-secret-change-this-to-a-random-secret-32bytes}
+    expiration-minutes: 60
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
